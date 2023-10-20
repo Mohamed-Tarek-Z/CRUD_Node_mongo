@@ -1,0 +1,17 @@
+services:
+  node:
+    image: my_api:latest
+    build: .
+    container_name: api_c
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/api
+      - /api/node_modules
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo_c
+    ports:
+      - 27017:27017

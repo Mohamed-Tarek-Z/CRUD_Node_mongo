@@ -1,0 +1,42 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+      <div class="create-blog content">
+        <form action="/emp/create" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="title" name="name" required>
+          <label for="surname">SurName:</label>
+          <input type="text" id="title" name="surname" required>
+          <label for="email">Email:</label>
+          <input type="email" id="snippet" name="email" required>
+          <label for="birthDate">Birth Date:</label>
+          <input type="date" name="birthDate">
+
+          <label for="department">Choose a department:</label>
+          <select name="department">
+            <% if (deps.length> 0) { %>
+              <% deps.forEach(dep=> { %>
+                <option value="<%= dep._id %>">
+                  <%= dep.name %>
+                </option>
+                <% }) %>
+                  <% } else { %>
+                    <option value="-1">
+                      No Deps yet
+                    </option>
+                    <% } %>
+          </select>
+
+          <div class="sub">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+  </body>
+
+</html>

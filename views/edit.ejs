@@ -1,0 +1,39 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+      <h2>Edit-Profile</h2>
+
+      <div class="create-blog content">
+        <form action="/edit/<%= emp.id %>" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" value="<%= emp.name %>" id="title" name="name" required>
+          <label for="surname">SurName:</label>
+          <input type="text" value="<%= emp.surname %>" name="surname" required>
+          <label for="email">Email:</label>
+          <input type="email" value="<%= emp.email %>" id="snippet" name="email" required>
+          <label for="birthDate">Birth Date:</label>
+          <input type="date" value="<%= emp.birthDate %>" name="birthDate">
+
+          <label for="department">Choose a department:</label>
+          <select name="department">
+
+            <% if (deps.length> 0) { %>
+              <% deps.forEach(dep=> { %>
+                <option value="<%= dep._id %>" <% if (emp.department._id === dep._id) {  %> selected <% } %> ><%= dep.name %></option>
+              <% }) %>
+            <% } else { %>
+              <option value="-1">No Deps yet</option>
+            <% } %>
+          </select>
+
+          <button type="submit">Update</button>
+        </form>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+  </body>
+
+</html>
