@@ -6,7 +6,9 @@
 
   <div class="blogs content">
     <h2>All Deps</h2>
-
+    <a href="/deps/create">
+      <button type="button">Click Me!</button>
+    </a>
     <% if (deps.length > 0) { %>
       <% deps.forEach(dep => { %>
         <a class="single" href="/deps/<%= dep.id %>">
