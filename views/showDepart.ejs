@@ -1,0 +1,25 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <h2>All Deps</h2>
+
+    <% if (deps.length > 0) { %>
+      <% deps.forEach(dep => { %>
+        <a class="single" href="/deps/<%= dep.id %>">
+          <h3 class="title"><%= dep.name %></h3>
+          <p class="snippet"><%= dep.description %></p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no deps to display...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
