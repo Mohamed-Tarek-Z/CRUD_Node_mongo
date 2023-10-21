@@ -15,14 +15,14 @@
           <label for="email">Email:</label>
           <input type="email" value="<%= emp.email %>" id="snippet" name="email" required>
           <label for="birthDate">Birth Date:</label>
-          <input type="date" value="<%= emp.birthDate %>" name="birthDate">
+          <input type="date" value="<%= new Date(emp.birthDate).toISOString().split("T")[0] %>" name="birthDate">
 
           <label for="department">Choose a department:</label>
           <select name="department">
 
             <% if (deps.length> 0) { %>
               <% deps.forEach(dep=> { %>
-                <option value="<%= dep._id %>" <% if (emp.department._id === dep._id) {  %> selected <% } %> ><%= dep.name %></option>
+                <option value="<%= dep._id %>" <% if (emp.department._id == dep._id) {  %> selected <% } %> ><%= dep.name %></option>
               <% }) %>
             <% } else { %>
               <option value="-1">No Deps yet</option>

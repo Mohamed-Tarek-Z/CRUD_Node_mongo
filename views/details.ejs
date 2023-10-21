@@ -10,7 +10,7 @@
     <div class="content">
       <p><span>SurName :</span> <%= emp.surname %></p>
       <p><span>Email :</span> <%= emp.email %></p>
-      <p><span>Birth Date :</span> <%= emp.birthDate %></p>
+      <p><span>Birth Date :</span> <%= new Date(emp.birthDate).toISOString().split("T")[0] %></p>
       <p><span>Department :</span> <%= emp.department.name %></p>
     </div>
   </div>
